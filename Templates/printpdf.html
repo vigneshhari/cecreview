@@ -1,0 +1,17 @@
+<h1 align = "center" > Evaluation Report </h1>
+
+<div align ="left">
+    <h4  style="padding-top : 0px ; margin-left: 25px"> Dear Sri/Smt {{name}}, </h4>
+    <h5><p> &nbsp The S{{sem}} {{div}} Batch Students have evaluated your classes taken for them during Feb-2017 - May-2017, Which is Summarized Below. You may analyze their opinions critically. I request you to pay attention on deserving points so that the teaching learning process becomes more effective  </p></h5>
+</div>
+<div class = "row">
+<h5 align = left>Chengannur</h5>
+<h5 align = right>With Best Wishes <br> <br> Principal</h5>
+</div>
+{% for i in ques %}
+<p>{{i.question}}<br>
+{{i.result}}<p>
+<br>
+{%endfor%}
+
+<h5>This is a computer generated report<h5>

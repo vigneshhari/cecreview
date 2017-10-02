@@ -1,0 +1,21 @@
+<h1 align = "center" style="padding-top : 50px"> Welcome to Dashboard For Semester S{{sem}} Division {{div}}</h1>
+
+<div align ="center">
+<h2  style="padding-top : 30px "> Teachers List </h2>
+<div style="margin-left: 25px">
+    <form action="/app/set" method="get">            
+    {% for i in data %}
+        <h3>T{{i.pos}}</h3> <h4>Current Name : {{i.name}} </h4>  <h4 style="margin-top:5px">Set new Name <input type="text" name = "{{i.pos}}" value = "{{i.name}}" </input><h4> 
+            <a href =  {{i.printurl}} style = "-webkit-appearance: button;-moz-appearance: button;appearance: button;text-decoration: none;color: initial; padding : 4px" > Print {{i.name}}'s Report</a>
+    {% endfor %}<br>
+    <input type="submit" value="Update Teacher Names" style="margin-top : 20px" </input>
+    </form>
+    <br>
+    <form style="margin-top:5px" action="/app/review">
+        <input type="submit" value="Add Student Review" />
+    </form>
+    <form style="margin-top:5px" action="/app/logout">
+        <input type="submit" value="Change Classes" />
+    </form>
+</div>
+</div>
