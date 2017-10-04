@@ -87,7 +87,6 @@ def printpdf(request):
     tname = Teacher.objects.get(semester = sem , div = divi , teacher_class_id = teacherid).name
     tcourse = Teacher.objects.get(semester = sem , div = divi , teacher_class_id = teacherid).course
 
-    print out
     data = {
         "sem": sem, "div": divi.upper(), "name": tname, "ques": out , "course" : tcourse , "date" : datetime.datetime.now().date()
     }

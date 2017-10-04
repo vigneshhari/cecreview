@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2fbf33c6-14d9-4f0a-ae28-fa6c38cc1d48" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/review/urls.py" afterPath="$PROJECT_DIR$/review/urls.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TeacherReview/views.py" afterPath="$PROJECT_DIR$/TeacherReview/views.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/review/settings.py" afterPath="$PROJECT_DIR$/review/settings.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -18,11 +18,21 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/TeacherReview/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="551">
-              <caret line="91" column="130" lean-forward="false" selection-start-line="91" selection-start-column="130" selection-end-line="91" selection-end-column="130" />
+            <state relative-caret-position="336">
+              <caret line="89" column="0" lean-forward="false" selection-start-line="89" selection-start-column="0" selection-end-line="89" selection-end-column="0" />
               <folding>
                 <element signature="e#24#63#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="settings.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/review/settings.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="405">
+              <caret line="27" column="19" lean-forward="false" selection-start-line="27" selection-start-column="19" selection-end-line="27" selection-end-column="19" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -78,7 +88,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="urls.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/review/urls.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="270">
@@ -110,9 +120,10 @@
       <list>
         <option value="$PROJECT_DIR$/TeacherReview/models.py" />
         <option value="$PROJECT_DIR$/Templates/dashboard.html" />
-        <option value="$PROJECT_DIR$/TeacherReview/views.py" />
         <option value="$PROJECT_DIR$/Templates/printpdf.html" />
         <option value="$PROJECT_DIR$/review/urls.py" />
+        <option value="$PROJECT_DIR$/TeacherReview/views.py" />
+        <option value="$PROJECT_DIR$/review/settings.py" />
       </list>
     </option>
   </component>
@@ -226,13 +237,11 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/TeacherReview/models.py">
+    <entry file="file://$PROJECT_DIR$/review/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="47" lean-forward="false" selection-start-line="7" selection-start-column="47" selection-end-line="7" selection-end-column="47" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="270">
+          <caret line="20" column="22" lean-forward="false" selection-start-line="20" selection-start-column="22" selection-end-line="20" selection-end-column="22" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -281,20 +290,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/TeacherReview/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="47" lean-forward="false" selection-start-line="7" selection-start-column="47" selection-end-line="7" selection-end-column="47" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/TeacherReview/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="551">
-          <caret line="91" column="130" lean-forward="false" selection-start-line="91" selection-start-column="130" selection-end-line="91" selection-end-column="130" />
+        <state relative-caret-position="336">
+          <caret line="89" column="0" lean-forward="false" selection-start-line="89" selection-start-column="0" selection-end-line="89" selection-end-column="0" />
           <folding>
             <element signature="e#24#63#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/review/urls.py">
+    <entry file="file://$PROJECT_DIR$/review/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="20" column="22" lean-forward="false" selection-start-line="20" selection-start-column="22" selection-end-line="20" selection-end-column="22" />
+        <state relative-caret-position="405">
+          <caret line="27" column="19" lean-forward="false" selection-start-line="27" selection-start-column="19" selection-end-line="27" selection-end-column="19" />
           <folding />
         </state>
       </provider>
