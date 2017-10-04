@@ -5,7 +5,7 @@
 <div style="margin-left: 25px">
     <form action="/app/set" method="get">            
     {% for i in data %}
-        <h3>T{{i.pos}}</h3> <h4>Current Name : {{i.name}} </h4>  <h4 style="margin-top:5px">Set new Name <input type="text" name = "{{i.pos}}" value = "{{i.name}}" </input><h4> 
+        <h3>T{{i.pos}}</h3> <h4>Current Name : {{i.name}} || Current Course : {{i.course}}</h4>  <h4 style="margin-top:5px">Set new Name <input type="text" name = "N{{i.pos}}" value = "{{i.name}}" </input>  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Set new Course <input type="text" name = "C{{i.pos}}" value = "{{i.course}}" </input><h4>
             <a href =  {{i.printurl}} style = "-webkit-appearance: button;-moz-appearance: button;appearance: button;text-decoration: none;color: initial; padding : 4px" > Print {{i.name}}'s Report</a>
     {% endfor %}<br>
     <input type="submit" value="Update Teacher Names" style="margin-top : 20px" </input>

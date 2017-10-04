@@ -1,17 +1,34 @@
-<h1 align = "center" > Evaluation Report </h1>
+<h1 align = "center" style="font-size: 20px" > Evaluation Report </h1>
 
 <div align ="left">
-    <h4  style="padding-top : 0px ; margin-left: 25px"> Dear Sri/Smt {{name}}, </h4>
-    <h5><p> &nbsp The S{{sem}} {{div}} Batch Students have evaluated your classes taken for them during Feb-2017 - May-2017, Which is Summarized Below. You may analyze their opinions critically. I request you to pay attention on deserving points so that the teaching learning process becomes more effective  </p></h5>
+    <h4  style="font-size: 15px ;padding-top : 0px ; margin-left: 25px" > Dear Sri/Smt {{name}}, </h4>
+    <h4  style="font-size: 15px ;padding-top : 0px ; margin-left: 25px" > Course {{course}}, </h4>
+    <h5 style="font-size: 13px"><p> &nbsp The S{{sem}} {{div}} Batch Students have evaluated your classes taken for them during Feb-2017 - May-2017, Which is Summarized Below. You may analyze their opinions critically. I request you to pay attention on deserving points so that the teaching learning process becomes more effective  </p></h5>
 </div>
 <div class = "row">
-<h5 align = left>Chengannur</h5>
-<h5 align = right>With Best Wishes <br> <br> Principal</h5>
+    <table>
+<tr>
+    <td><h5 align = left style="font-size: 14px">Chengannur,</h5></td>
+    <td> <h5 align = right style="font-size: 14px">With Best Wishes, </td></tr>
+        <tr>
+    <td><h5 align = left style="font-size: 14px">{{date}}</h5></td>
+    <td> <h5 align = right style="font-size: 14px">Principal </td></tr>
+    </table>
 </div>
-{% for i in ques %}
-<p>{{i.question}}<br>
-{{i.result}}<p>
 <br>
+<br>
+<table style="top:50px" border="1" CELLPADDING=5>
+    <tr>
+        <td style="font-size: 14px">Questions</td>
+        <td style="size : 3em"><pre ><span  style="font-size: 14px">   NO  &nbsp  SD  &nbsp  D &nbsp    N &nbsp    A &nbsp    SA </span></pre></td>
+     </tr>
+{% for i in ques %}
+<tr>
+    <td style="font-size: 14px ;">{{i.question}}</td>
+    <td><pre><span  style="font-size: 14px">{{i.result}}</span></pre></td></tr>
 {%endfor%}
-
-<h5>This is a computer generated report<h5>
+</table>
+<br>
+<p><pre><span  style="font-size: 10px">NO : No Opinion     SD : Strongly Disagree      D : Disagree     N : Neutral     A : Agree     SA : Strongly Agree</pre>
+</p><br>
+<h5>This is a computer generated report</h5>

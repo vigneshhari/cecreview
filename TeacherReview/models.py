@@ -5,6 +5,7 @@ from django.db import models
 class Teacher(models.Model):
     teacher_class_id = models.IntegerField()
     name = models.CharField(max_length = 500)
+    course = models.CharField(max_length = 500)
     semester = models.CharField(max_length = 100)
     div = models.CharField(max_length = 100)
 

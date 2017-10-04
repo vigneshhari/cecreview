@@ -1,9 +1,32 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
+
+from io import BytesIO
+
 from django.shortcuts import render
 from django.http import HttpResponse ,HttpResponseRedirect
 from .models import Teacher , Review , Questions
+import cStringIO as StringIO
+from xhtml2pdf import pisa
+from django.template.loader import get_template
+from django.template import Context
+from django.http import HttpResponse
+from cgi import escape
+from django.template.loader import render_to_string
 
+import datetime
+
+from xhtml2pdf import pisa
+
+
+def render_to_pdf(template_src, context_dict={}):
+    template = get_template(template_src)
+    html = template.render(context_dict)
+    result = BytesIO()
+    pdf = pisa.pisaDocument(BytesIO(html.encode("ISO-8859-1")), result)
+    if not pdf.err:
+        return HttpResponse(result.getvalue(), content_type='application/pdf')
+    return None
 
 def login(request):
     return render(request , 'login.html')
@@ -59,10 +82,18 @@ def printpdf(request):
         for i,j in enumerate(scores):
             pass
             current_score[i] = Review.objects.all().filter(teacher__semester = sem , teacher__div = divi , teacher__teacher_class_id = teacherid , question__question_no = k.question_no , ans = j).__len__()
-        outlis = [str(y + " " +  str(current_score[x])) for x,y in enumerate(opinion)]
-        out.append({"question" : cquestion , "result" : "       ".join(outlis) })
-    tname = Teacher.objects.get(semester = sem , div = divi , teacher_class_id = teacherid).name 
-    return render(request,"printpdf.html",{"sem" : sem  , "div" : divi.upper() , "name" : tname  , "ques" :out })
+        outlis = [  str(current_score[x]) + str("    " ) for x,y in enumerate(opinion)]
+        out.append({"question" : cquestion , "result" : "   " + "  ".join(outlis) })
+    tname = Teacher.objects.get(semester = sem , div = divi , teacher_class_id = teacherid).name
+    tcourse = Teacher.objects.get(semester = sem , div = divi , teacher_class_id = teacherid).course
+
+    print out
+    data = {
+        "sem": sem, "div": divi.upper(), "name": tname, "ques": out , "course" : tcourse , "date" : datetime.datetime.now().date()
+    }
+    pdf = render_to_pdf('printpdf.html', data)
+    return HttpResponse(pdf, content_type='application/pdf')
+    #return render(request,"printpdf.html",{ })
 
 def logout(request):
     request.session["sem"] = ""
@@ -81,11 +112,12 @@ def dash(request):
     data_name = []
     for i in range(1,7):
         name = ""
+        course = ""
         check = False
         for k in teach :
-            if(k.teacher_class_id == i ):name = k.name
-        if(name == ""):name = "unknown"
-        data_name.append({ "pos" :  i , "name" : name , "printurl" : "/app/printpdf?id=" + str(i) })
+            if(k.teacher_class_id == i ):name = k.name ; course = k.course
+        if(name == ""):name = "unknown" ; course = "unknown"
+        data_name.append({ "pos" :  i , "name" : name , "course" : course ,  "printurl" : "/app/printpdf?id=" + str(i) })
     return render(request , "dashboard.html" , {"data" : data_name , "sem" : sem , "div" : div.upper})
 
 def set(request):
@@ -93,7 +125,7 @@ def set(request):
     div = request.session["div"]
     for i in range(1,7):
             teach = Teacher.objects.all().filter(semester = sem , div = div , teacher_class_id = i )
-            if(teach.__len__() == 1):Teacher.objects.all().filter(semester = sem , div = div , teacher_class_id = i ).update(name = request.GET.get(str(i)))
+            if(teach.__len__() == 1):Teacher.objects.all().filter(semester = sem , div = div , teacher_class_id = i ).update(name = request.GET.get("N" + str(i)) , course = request.GET.get("C" + str(i)) )
             else:
-                Teacher(name = request.GET.get(str(i)) , semester = sem , div = div , teacher_class_id = i ).save()
+                Teacher(name = request.GET.get("N" + str(i)) , course = request.GET.get("C" + str(i)) , semester = sem , div = div , teacher_class_id = i ).save()
     return HttpResponseRedirect("/app/dashboard")
